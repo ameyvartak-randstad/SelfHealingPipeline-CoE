@@ -1,9 +1,1 @@
---1. Git checkout failure
---repo corrupted or missing branch
 
-import re,subprocess
-log = open('ci.log').read()
-if re.search(r'unable to checkout', log):
-    print("Remediating: git fetch && git reset --hard origin/$Branch")
-    subprocess.run(['git', 'fetch'], check=True)
-    subprocess.run(['git', 'reset',' --hard','origin/Main'], check=True)
